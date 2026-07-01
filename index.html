@@ -3,242 +3,147 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Zenith - Next Gen Platform</title>
+    <title>Zenith Life Flow</title>
     <style>
-        /* Modern Reset & CSS Variables */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-        }
-
+        /* Modern CSS Reset & Variables */
         :root {
-            --bg-color: #0b0f19;
-            --text-color: #f3f4f6;
-            --accent-glow: #6366f1;
-            --accent-gradient: linear-gradient(135deg, #6366f1 0%, #a855f7 100%);
-            --card-bg: #1e293b;
+            --primary: #4f46e5;
+            --primary-dark: #4338ca;
+            --background: #f8fafc;
+            --card-bg: #ffffff;
+            --text-main: #0f172a;
+            --text-muted: #475569;
         }
 
         body {
-            background-color: var(--bg-color);
-            color: var(--text-color);
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--background);
+            color: var(--text-main);
             line-height: 1.6;
-            overflow-x: hidden;
         }
 
-        /* Header Navigation */
+        /* Header / Navigation */
         header {
+            background-color: var(--card-bg);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            padding: 1.5rem 2rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 1.5rem 5%;
-            position: absolute;
-            width: 100%;
-            top: 0;
-            z-index: 100;
         }
 
         .logo {
             font-size: 1.5rem;
-            font-weight: 800;
-            letter-spacing: -0.5px;
-            background: var(--accent-gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 2rem;
-        }
-
-        .nav-links a {
-            color: #94a3b8;
-            text-decoration: none;
-            font-size: 0.95rem;
-            transition: color 0.3s;
-        }
-
-        .nav-links a:hover {
-            color: var(--text-color);
-        }
-
-        .btn-download {
-            background: var(--accent-gradient);
-            color: white;
-            padding: 0.6rem 1.3rem;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 0.9rem;
-            box-shadow: 0 4px 15px rgba(99, 102, 241, 0.4);
-            transition: transform 0.2s, box-shadow 0.2s;
-        }
-
-        .btn-download:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(99, 102, 241, 0.6);
+            font-weight: 700;
+            color: var(--primary);
+            letter-spacing: -0.05em;
         }
 
         /* Hero Section */
         .hero {
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
+            max-width: 800px;
+            margin: 4rem auto;
+            padding: 0 2rem;
             text-align: center;
-            padding: 0 1rem;
-            position: relative;
-            background: radial-gradient(circle at 50% 30%, rgba(99, 102, 241, 0.15) 0%, transparent 60%);
         }
 
         .hero h1 {
-            font-size: 3.5rem;
+            font-size: 3rem;
             font-weight: 800;
             line-height: 1.2;
             margin-bottom: 1.5rem;
-            max-width: 800px;
-        }
-
-        .hero h1 span {
-            background: var(--accent-gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            color: var(--text-main);
         }
 
         .hero p {
-            font-size: 1.2rem;
-            color: #94a3b8;
-            max-width: 600px;
-            margin-bottom: 2.5rem;
+            font-size: 1.25rem;
+            color: var(--text-muted);
+            margin-bottom: 2rem;
         }
 
-        .hero-buttons {
-            display: flex;
-            gap: 1rem;
-        }
-
-        .btn-secondary {
-            background: rgba(255, 255, 255, 0.05);
-            color: var(--text-color);
-            padding: 0.8rem 1.8rem;
-            border-radius: 50px;
+        /* Interactive Button */
+        .btn {
+            display: inline-block;
+            background-color: var(--primary);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
             text-decoration: none;
             font-weight: 600;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            transition: background 0.3s;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 6px -1px rgba(79, 70, 229, 0.2);
         }
 
-        .btn-secondary:hover {
-            background: rgba(255, 255, 255, 0.1);
+        .btn:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-1px);
         }
 
-        /* Features Section */
+        /* Content Cards */
         .features {
-            padding: 5rem 5%;
-            background: rgba(255, 255, 255, 0.01);
-        }
-
-        .features-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
+            max-width: 1000px;
+            margin: 2rem auto;
+            padding: 0 2rem;
         }
 
         .card {
             background: var(--card-bg);
-            padding: 2.5rem 2rem;
-            border-radius: 16px;
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            transition: transform 0.3s, border-color 0.3s;
-        }
-
-        .card:hover {
-            transform: translateY(-5px);
-            border-color: rgba(99, 102, 241, 0.3);
-        }
-
-        .card-icon {
-            font-size: 2rem;
-            margin-bottom: 1rem;
+            padding: 2rem;
+            border-radius: 1rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            border: 1px solid rgba(0,0,0,0.05);
         }
 
         .card h3 {
-            font-size: 1.3rem;
-            margin-bottom: 0.75rem;
-        }
-
-        .card p {
-            color: #94a3b8;
-            font-size: 0.95rem;
+            margin-top: 0;
+            color: var(--primary);
         }
 
         /* Footer */
         footer {
             text-align: center;
-            padding: 3rem 1rem;
-            color: #64748b;
-            font-size: 0.9rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .nav-links { display: none; }
-            .hero h1 { font-size: 2.5rem; }
-            .hero p { font-size: 1rem; }
-            .hero-buttons { flex-direction: column; width: 100%; max-width: 300px; }
-            .btn-download, .btn-secondary { text-align: center; }
+            padding: 3rem 0;
+            color: var(--text-muted);
+            font-size: 0.875rem;
+            margin-top: 4rem;
+            border-top: 1px solid rgba(0,0,0,0.05);
         }
     </style>
 </head>
 <body>
 
     <header>
-        <div class="logo">🚀 Zenith</div>
-        <ul class="nav-links">
-            <li><a href="#features">Features</a></li>
-        </ul>
-        <a href="https://zenith-airborne-life-flow.base44.app" target="_blank" class="btn-download">Launch App</a>
+        <div class="logo">ZenithLifeFlow</div>
     </header>
 
     <section class="hero">
-        <h1>The ultimate platform to <span>supercharge</span> your workflow</h1>
-        <p>Streamline your tasks, collaborate seamlessly with your team, and track your progress all in one beautifully dark interface.</p>
-        <div class="hero-buttons">
-            <a href="https://zenith-airborne-life-flow.base44.app" target="_blank" class="btn-download" style="padding: 0.8rem 1.8rem;">Launch App</a>
-            <a href="#features" class="btn-secondary">Learn More</a>
-        </div>
+        <h1>Welcome to Your Zenith</h1>
+        <p>This beautiful custom webpage was built using Gemini, HTML, and GitHub Pages. Ready to customize and take control of your digital flow.</p>
+        <a href="#explore" class="btn">Get Started</a>
     </section>
 
-    <section id="features" class="features">
-        <div class="features-grid">
-            <div class="card">
-                <div class="card-icon">⚡</div>
-                <h3>Lightning Fast</h3>
-                <p>Built with efficiency in mind. Experience zero lag and real-time updates across all your devices instantly.</p>
-            </div>
-            <div class="card">
-                <div class="card-icon">🔒</div>
-                <h3>Secure by Default</h3>
-                <p>Your data belongs to you. End-to-end encryption ensures your private information always stays completely private.</p>
-            </div>
-            <div class="card">
-                <div class="card-icon">🎨</div>
-                <h3>Sleek Customization</h3>
-                <p>Make it yours. Choose from gorgeous themes, custom layouts, and hotkeys tailored perfectly to your style.</p>
-            </div>
+    <main class="features" id="explore">
+        <div class="card">
+            <h3>Clean Design</h3>
+            <p>Modern typography and spacious layouts make your content easy to read and engage with.</p>
         </div>
-    </section>
+        <div class="card">
+            <h3>Fully Responsive</h3>
+            <p>Looks perfect on desktop monitors, tablets, and mobile screens automatically.</p>
+        </div>
+        <div class="card">
+            <h3>Fast Hosting</h3>
+            <p>Powered entirely by GitHub Pages, ensuring lightning-fast load times for global visitors.</p>
+        </div>
+    </main>
 
     <footer>
-        <p>&copy; 2026 Zenith. All rights reserved.</p>
+        <p>&copy; 2026 ZenithLifeFlow. Powered by GitHub.</p>
     </footer>
 
 </body>
