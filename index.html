@@ -5,165 +5,147 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Zenith Life Flow</title>
     <style>
-        /* Modern CSS Variables */
+        /* Premium Modern Variables */
         :root {
-            --primary: #4f46e5;
-            --primary-dark: #4338ca;
-            --background: #f8fafc;
+            --primary: #6366f1;
+            --primary-hover: #4f46e5;
+            --accent: #06b6d4;
+            --background: #fafafa;
             --card-bg: #ffffff;
             --text-main: #0f172a;
-            --text-muted: #475569;
+            --text-muted: #64748b;
         }
 
         body {
-            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             margin: 0;
             padding: 0;
             background-color: var(--background);
+            background-image: 
+                radial-gradient(at 0% 0%, rgba(99, 102, 241, 0.05) 0px, transparent 50%),
+                radial-gradient(at 100% 100%, rgba(6, 182, 212, 0.05) 0px, transparent 50%);
             color: var(--text-main);
             line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
         }
 
-        /* Header / Navigation */
+        /* Premium Navigation */
         header {
-            background-color: var(--card-bg);
-            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-            padding: 1.5rem 2rem;
+            background-color: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            padding: 1.25rem 2rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
         }
 
         .logo {
             font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--primary);
-            letter-spacing: -0.05em;
+            font-weight: 800;
+            background: linear-gradient(to right, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: -0.03em;
         }
 
-        /* Hero Section */
+        /* Elegant Hero Section */
         .hero {
             max-width: 800px;
-            margin: 4rem auto;
+            margin: 6rem auto 4rem auto;
             padding: 0 2rem;
             text-align: center;
         }
 
         .hero h1 {
-            font-size: 3rem;
+            font-size: 3.5rem;
             font-weight: 800;
-            line-height: 1.2;
+            line-height: 1.15;
             margin-bottom: 1.5rem;
+            letter-spacing: -0.04em;
             color: var(--text-main);
         }
 
         .hero p {
             font-size: 1.25rem;
             color: var(--text-muted);
-            margin-bottom: 2rem;
+            margin-bottom: 2.5rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
-        /* Button Styling */
+        /* High-End Interactive Button */
         .btn {
             display: inline-block;
-            background-color: var(--primary);
+            background: linear-gradient(135deg, var(--primary), var(--primary-hover));
             color: white;
-            padding: 0.75rem 1.5rem;
-            border-radius: 0.5rem;
+            padding: 0.875rem 2rem;
+            border-radius: 50px;
             text-decoration: none;
             font-weight: 600;
-            border: none;
-            cursor: pointer;
-            font-size: 1rem;
-            transition: all 0.2s ease;
-            box-shadow: 0 4px 6px -1px rgba(79, 70, 229, 0.2);
+            font-size: 1.05rem;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 10px 20px -5px rgba(99, 102, 241, 0.4);
         }
 
         .btn:hover {
-            background-color: var(--primary-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 15px 25px -5px rgba(99, 102, 241, 0.5);
+            background: linear-gradient(135deg, var(--primary-hover), var(--primary));
+        }
+
+        .btn:active {
             transform: translateY(-1px);
         }
 
-        /* Features Section */
+        /* Luxury Showcase Cards */
         .features {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 2rem;
-            max-width: 1000px;
+            max-width: 1100px;
             margin: 2rem auto;
             padding: 0 2rem;
+            flex-grow: 1;
         }
 
         .card {
             background: var(--card-bg);
-            padding: 2rem;
-            border-radius: 1rem;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
-            border: 1px solid rgba(0,0,0,0.05);
+            padding: 2.5rem 2rem;
+            border-radius: 1.25rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.02), 0 10px 15px -3px rgba(0, 0, 0, 0.03);
+            border: 1px solid rgba(0, 0, 0, 0.04);
+            transition: all 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.05), 0 10px 10px -5px rgba(0, 0, 0, 0.02);
+            border-color: rgba(99, 102, 241, 0.15);
         }
 
         .card h3 {
             margin-top: 0;
-            color: var(--primary);
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+            color: var(--text-main);
         }
 
-        /* Popup Box (Modal) Styling */
-        .modal-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(15, 23, 42, 0.6);
-            backdrop-filter: blur(4px);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            opacity: 0;
-            pointer-events: none;
-            transition: opacity 0.3s ease;
-            z-index: 1000;
-        }
-
-        .modal-box {
-            background: white;
-            padding: 2.5rem;
-            border-radius: 1rem;
-            max-width: 400px;
-            width: 90%;
-            text-align: center;
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
-            transform: scale(0.9);
-            transition: transform 0.3s ease;
-        }
-
-        .modal-overlay.active {
-            opacity: 1;
-            pointer-events: auto;
-        }
-
-        .modal-overlay.active .modal-box {
-            transform: scale(1);
-        }
-
-        .close-btn {
-            margin-top: 1.5rem;
-            background-color: #e2e8f0;
-            color: #334155;
-        }
-
-        .close-btn:hover {
-            background-color: #cbd5e1;
-        }
-
-        /* Footer */
+        /* Minimalist Footer */
         footer {
             text-align: center;
             padding: 3rem 0;
             color: var(--text-muted);
             font-size: 0.875rem;
-            margin-top: 4rem;
-            border-top: 1px solid rgba(0,0,0,0.05);
+            border-top: 1px solid rgba(0, 0, 0, 0.04);
+            background-color: rgba(255, 255, 255, 0.5);
         }
     </style>
 </head>
@@ -175,59 +157,28 @@
 
     <section class="hero">
         <h1>Welcome to Your Zenith</h1>
-        <p>This beautiful custom webpage was built using Gemini, HTML, and GitHub Pages. Ready to customize and take control of your digital flow.</p>
-        <button class="btn" id="startBtn">Get Started</button>
+        <p>Experience a beautifully crafted space designed for seamless flows, custom-built using HTML, modern styling, and GitHub Pages.</p>
+        <a href="https://zenith-airborne-life-flow.base44.app/" class="btn">Get Started</a>
     </section>
 
     <main class="features">
         <div class="card">
-            <h3>Clean Design</h3>
-            <p>Modern typography and spacious layouts make your content easy to read and engage with.</p>
+            <h3>Premium Interface</h3>
+            <p>Featuring beautiful custom gradients, modern typography, and clean layout patterns built to stand out.</p>
         </div>
         <div class="card">
-            <h3>Fully Responsive</h3>
-            <p>Looks perfect on desktop monitors, tablets, and mobile screens automatically.</p>
+            <h3>Fully Connected</h3>
+            <p>Seamlessly routes your users to external applications and custom workflows with zero hassle.</p>
         </div>
         <div class="card">
-            <h3>Fast Hosting</h3>
-            <p>Powered entirely by GitHub Pages, ensuring lightning-fast load times for global visitors.</p>
+            <h3>Fluid Optimization</h3>
+            <p>Designed responsively from the ground up to load instantly and look brilliant on any modern display.</p>
         </div>
     </main>
 
-    <div class="modal-overlay" id="modalOverlay">
-        <div class="modal-box">
-            <h2>Welcome to the Flow! 🚀</h2>
-            <p>Your action button is officially working perfectly. You can change this popup message to say anything you like!</p>
-            <button class="btn close-btn" id="closeBtn">Awesome</button>
-        </div>
-    </div>
-
     <footer>
-        <p>&copy; 2026 ZenithLifeFlow. Powered by GitHub.</p>
+        <p>&copy; 2026 ZenithLifeFlow. Hosted securely on GitHub.</p>
     </footer>
-
-    <script>
-        const startBtn = document.getElementById('startBtn');
-        const closeBtn = document.getElementById('closeBtn');
-        const modalOverlay = document.getElementById('modalOverlay');
-
-        // Open popup when clicking "Get Started"
-        startBtn.addEventListener('click', () => {
-            modalOverlay.classList.add('active');
-        });
-
-        // Close popup when clicking "Awesome"
-        closeBtn.addEventListener('click', () => {
-            modalOverlay.classList.remove('active');
-        });
-
-        // Close popup if clicking outside the white box
-        modalOverlay.addEventListener('click', (e) => {
-            if (e.target === modalOverlay) {
-                modalOverlay.classList.remove('active');
-            }
-        });
-    </script>
 
 </body>
 </html>
